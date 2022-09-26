@@ -185,7 +185,7 @@ PokemonData.TypeIndexMap = {
 }
 
 --All type combinations present in gen 3, reversed duplicates omitted
-TypeCombos = {
+PokemonData.TypeCombos = {
 	{ type = { PokemonData.Types.GRASS, PokemonData.Types.POISON } },
 	{ type = { PokemonData.Types.GRASS, PokemonData.Types.PSYCHIC } },
 	{ type = { PokemonData.Types.GRASS, PokemonData.Types.EMPTY } },
