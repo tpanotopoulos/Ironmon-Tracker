@@ -356,3 +356,11 @@ function Drawing.drawRepelUsage()
 	-- Draw colored bar for remaining usage
 	gui.drawRectangle(xOffset, 1 + (repelBarHeight - remainingHeight), 4, remainingHeight, 0x00000000, barColor)
 end
+
+function Drawing.drawDot(x, y, color)
+	gui.drawPixel(x, y, color)
+	gui.drawPixel(x + 1, y, color)
+	gui.drawPixel(x, y + 1, color)
+	gui.drawPixel(x + 1, y + 1, color)
+end
+	
