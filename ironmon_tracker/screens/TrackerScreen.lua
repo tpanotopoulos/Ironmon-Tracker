@@ -603,6 +603,32 @@ function TrackerScreen.drawPokemonInfoArea(pokemon)
 	Drawing.drawText(Constants.SCREEN.WIDTH + 52, pkmnStatStartY + (pkmnStatOffsetY * 1), hpText, hpTextColor, shadowcolor)
 	Drawing.drawText(Constants.SCREEN.WIDTH + pkmnStatOffsetX, pkmnStatStartY + (pkmnStatOffsetY * 2), levelEvoText, Theme.COLORS["Default text"], shadowcolor)
 
+	if Tracker.Data.isViewingOwn then
+		local cvgColor = Theme.COLORS["Default text"]
+		local shdColor = Theme.COLORS["Default text"]
+		
+		if Coverage.general == 0 then
+			cvgColor = Theme.COLORS["Negative text"]
+		elseif Coverage.general == 1 then
+			cvgColor = Theme.COLORS["Intermediate text"]
+		elseif Coverage.general == 2 then
+			cvgColor = Theme.COLORS["Positive text"]
+		end
+		
+		if Coverage.shedinja == 0 then
+			shdColor = Theme.COLORS["Negative text"]
+		elseif Coverage.shedinja == 1 then
+			shdColor = Theme.COLORS["Intermediate text"]
+		elseif Coverage.shedinja == 2 then
+			shdColor = Theme.COLORS["Positive text"]
+		end
+		
+		Drawing.drawText(Constants.SCREEN.WIDTH + pkmnStatOffsetX + 32, pkmnStatStartY + (pkmnStatOffsetY * 1), "CVG", Theme.COLORS["Default text"], shadowcolor)
+		Drawing.drawDot(Constants.SCREEN.WIDTH + pkmnStatOffsetX + 37, pkmnStatStartY + (pkmnStatOffsetY * 2) + 1, cvgColor)
+		Drawing.drawText(Constants.SCREEN.WIDTH + pkmnStatOffsetX + 32, pkmnStatStartY + (pkmnStatOffsetY * 3), "SHD", Theme.COLORS["Default text"], shadowcolor)
+		Drawing.drawDot(Constants.SCREEN.WIDTH + pkmnStatOffsetX + 37, pkmnStatStartY + (pkmnStatOffsetY * 4), + 1, shdColor)
+	end
+	
 	if Tracker.Data.isViewingOwn and evoDetails ~= Constants.BLANKLINE then
 		-- Draw over the evo method in the new color to reflect if evo is possible/soon
 		Drawing.drawText(Constants.SCREEN.WIDTH + evoSpacing, pkmnStatStartY + (pkmnStatOffsetY * 2), evoDetails, evoTextColor, shadowcolor)
