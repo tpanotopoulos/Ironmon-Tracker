@@ -50,6 +50,7 @@ function Main.Initialize()
 		"/Battle.lua",
 		"/Pickle.lua",
 		"/Tracker.lua",
+		"/CoverageCheck.lua",
 	}
 
 	console.clear() -- Clearing the console for each new game helps with troubleshooting issues
