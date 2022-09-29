@@ -41,6 +41,7 @@ function Tracker.addUpdatePokemon(pokemonData, personality, isOwn)
 	local pokemon
 	if isOwn then
 		pokemon = Tracker.Data.ownPokemon[personality]
+		Coverage.update()
 	else
 		pokemon = Tracker.Data.otherPokemon[personality]
 	end
@@ -56,6 +57,7 @@ function Tracker.addUpdatePokemon(pokemonData, personality, isOwn)
 	else
 		if isOwn then
 			Tracker.Data.ownPokemon[personality] = pokemonData
+			Coverage.update()
 		else
 			Tracker.Data.otherPokemon[personality] = pokemonData
 		end
